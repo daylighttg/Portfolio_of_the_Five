@@ -123,14 +123,19 @@
             transition: margin-left 0.4s;
         }
 
-        /* Icon styles - using emoji as placeholders */
+        /* Icon styles */
         .icon {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0; /* prevent shrinking */
+        }
+
+        .icon.svg-icon {
+            border-radius: 0;
+            object-fit: initial;
+            fill: currentColor;
         }
 
         .main-content header {

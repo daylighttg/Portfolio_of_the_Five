@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
 
     const observerOptions = {
-        root: null, // use the viewport as the root
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.1 // trigger when 10% of the element is visible
+        threshold: 0.1 // 
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing the element once it's visible
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Function to toggle information visibility
+
 function toggleInfo(id) {
     const element = document.getElementById(id);
     if (element) {

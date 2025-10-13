@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
         * {
             box-sizing: border-box;
         }
@@ -11,7 +13,7 @@
             background: #1d1b24;
             color: rgb(255 255 255 / 95%);
             height: 100vh;
-            font-family: "Euclid Circular A", "Poppins", sans-serif;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .sidebar {

@@ -1,189 +1,204 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-        * {
-            box-sizing: border-box;
-        }
-
-        :root {
-            --color-highlight: rgb(0 0 0 / 25%);
-        }
-
-        body {
-            margin: 0;
-            background: #1d1b24;
-            color: rgb(255 255 255 / 95%);
-            height: 100vh;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .sidebar {
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            width: 64px;
-            background: #522ad3;
-            transition: width 0.4s;
-        }
-
-        .sidebar:hover {
-            width: 180px;
-        }
-
-        .sidebar nav {
-            padding: 0 8px;
-        }
-
-        .header {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            height: 72px;
-            padding: 0 20px;
-            background: var(--color-highlight);
-        }
-
-        .header img {
-            height: 24px;
-            rotate: 180deg;
-            margin-left: 14px;
-        }
-
-        .header h1 {
-            opacity: 0;
-            margin: 0;
-            font-size: 16px;
-            font-weight: bold;
-            white-space: nowrap;
-            transition: opacity 0.175s, width 0.4s;
-            width: 0;
-            color: white;
-        }
-
-        .sidebar a p {
-            left: 50px;
-        }
-
-        .sidebar a {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            height: 44px;
-            width: 100%;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1;
-            padding: 0 0 0 16px;
-            opacity: 0.75;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            transition: 0.175s;
-        }
-
-        .sidebar a:hover {
-            background: var(--color-highlight);
-            opacity: 1;
-        }
-
-        .sidebar:hover .header h1 {
-            opacity: 1;
-            width: auto;
-        }
-
-        .sidebar a p {
-            position: absolute;
-            top: 50%;
-            translate: 0 -50%;
-            opacity: 0;
-            margin: 0;
-            white-space: nowrap;
-            transition: 0.175s;
-        }
-
-        .sidebar:hover a p {
-            opacity: 1;
-        }
-
-        .ai-search {
-            font-size: 20px;
-        }
-
-        /* Main content area */
-        .main-content {
-            margin-left: 64px;
-            padding: 40px;
-            transition: margin-left 0.4s;
-        }
-
-        .sidebar:hover ~ .main-content {
-            margin-left: 180px;
-        }
-
-        /* Icon styles */
-        .icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0; /* prevent shrinking */
-        }
-
-        .icon.svg-icon {
-            border-radius: 0;
-            object-fit: initial;
-            fill: currentColor;
-        }
-
-        .main-content header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .main-content header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #522ad3;
-        }
-
-        main {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .card {
-            flex: 1 1 300px;
-            background: #2a2831;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #444;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .card .info div:not(.hidden) {
-            color: #522ad3;
-        }
-
-        .card a {
-            color: #522ad3;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .card .info p a {
-            cursor: pointer;
-        }
+* {
+    box-sizing: border-box;
+}
+:root {
+    --primary: #522ad3;
+    --color-highlight: rgba(0, 0, 0, 0.12);
+    --card-bg: #241f29;
+    --muted: rgba(255,255,255,0.85);
+}
+body {
+    margin: 0;
+    background: #1d1b24;
+    color: rgb(255 255 255 / 95%);
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+.sidebar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 64px;
+    background: #522ad3;
+    transition: width 0.4s;
+}
+.sidebar:hover {
+    width: 180px;
+}
+.sidebar nav {
+    padding: 0 8px;
+}
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 72px;
+    padding: 0 20px;
+    background: var(--color-highlight);
+}
+.header img {
+    height: 24px;
+    rotate: 180deg;
+    margin-left: 14px;
+}
+.header h1 {
+    opacity: 0;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: opacity 0.175s, width 0.4s;
+    width: 0;
+    color: white;
+}
+.sidebar a p {
+    left: 50px;
+}
+.sidebar a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 44px;
+    width: 100%;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    padding: 0 0 0 16px;
+    opacity: 0.75;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.175s;
+}
+.sidebar a:hover {
+    background: var(--color-highlight);
+    opacity: 1;
+}
+.sidebar:hover .header h1 {
+    opacity: 1;
+    width: auto;
+}
+.sidebar a p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    margin: 0;
+    white-space: nowrap;
+    transition: 0.175s;
+}
+.sidebar:hover a p {
+    opacity: 1;
+}
+.ai-search {
+    font-size: 20px;
+}
+.main-content {
+    margin-left: 64px;
+    padding: 40px;
+    transition: margin-left 0.4s;
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(15,14,18,0.6), transparent);
+}
+.sidebar:hover ~ .main-content {
+    margin-left: 180px;
+}
+.icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.icon.svg-icon {
+    border-radius: 0;
+    object-fit: initial;
+    fill: currentColor;
+}
+.main-content header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.main-content header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.card {
+    flex: 1 1 300px;
+    background: linear-gradient(180deg, var(--card-bg), #2a2831);
+    padding: 20px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(82,42,211,0.12);
+    box-shadow: 0 6px 18px rgba(15, 10, 30, 0.6);
+    transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease;
+    will-change: transform;
+    color: var(--muted);
+    overflow: hidden;
+}
+.card:hover,
+.card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(34, 18, 95, 0.5);
+}
+.card h2 {
+    margin: 0 0 8px 0;
+    color: var(--primary);
+    font-size: 1.15rem;
+}
+.card p,
+.card .info {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+}
+.card a {
+    color: var(--primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.18s ease;
+}
+.card a:hover {
+    color: #7d66f0;
+}
+.hidden {
+    display: none;
+}
+.card .info div:not(.hidden) {
+    color: #522ad3;
+}
+.card a {
+    color: #522ad3;
+    text-decoration: none;
+    cursor: pointer;
+}
+.card .info p a {
+    cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .sidebar,
+    .main-content,
+    .sidebar a {
+        transition: none !important;
+        animation: none !important;
+    }
+    .card:hover { transform: none; box-shadow: 0 6px 18px rgba(15,10,30,0.6); }
+}
